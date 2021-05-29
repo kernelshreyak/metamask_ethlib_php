@@ -1,0 +1,43 @@
+
+----------------Steps for Installing Metamask
+1. Install Metamask for your Browser(Chrome or Firefox) from respective marketplaces
+2. After Metamask is installed, click on its icon in browser menu.
+3. It shows welcome screen. Click on 'Get Started' button
+4. Choose 'Create a Wallet' to begin creating a new wallet. Click on 'I Agree' to the conditions on next page
+5. Create a new password for your wallet. Store it safely.
+6. You will get the secret backup phrase. Copy it and store it safely. This will be used to recover your
+ wallet and your funds in case of any problem. Click on 'Next' button.
+7. Confirm your backup space by entering all 12 words in correct sequence as per phrase generated in step 6 and
+    click on 'Confirm' button.
+8. Click on 'All Done' button. Your metamask wallet is created.
+
+
+
+
+
+-----------------Metamask_ethlib Library
+Library contains both JS and PHP code. 
+The PHP file containing the library is metamask_ethlib.php.
+
+It has following functions in the class(Metamask_PHP):
+1. metamask_login(): this function allows login with metamask. 
+This is still pending and will be updated once coding for this is complete.
+
+2. metamask_sendTransacton(): this function calls web3js code to create a transaction from connected user's metamask
+wallet. The receiever address and ETH amount is sent as parameters to this function. Also the success URL 
+and error URL is passed as 3rd and 4th parameter respectively.
+
+example :
+$metamask = new Metamask_PHP();
+$metamask->metamask_sendTransacton($address,$eth_amount,"https://bitbizsolutions.com/metamask_api/test.php?success=1",
+            "https://bitbizsolutions.com/metamask_api/test.php?error=1");
+
+
+ After transaction is done, it redirects to success URL with POST parameters 'txhash' as transaction hash and 
+ 'amount' as the ETH amount.
+
+ In case error occurs or user cancels the transaction, it redirects to error URL.         
+
+
+
+
